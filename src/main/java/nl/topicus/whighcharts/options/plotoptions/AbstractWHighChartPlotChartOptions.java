@@ -2,6 +2,7 @@ package nl.topicus.whighcharts.options.plotoptions;
 
 import java.io.Serializable;
 
+import nl.topicus.whighcharts.options.WHighChartPointerType;
 import nl.topicus.whighcharts.options.chart.WHighChartChartEventsOptions;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
@@ -25,14 +26,26 @@ public class AbstractWHighChartPlotChartOptions<T extends AbstractWHighChartPlot
 	private WHighChartPlotDashStyleType dashStyle;
 
 	/**
-	 * Event listeners for chart events.
-	 */
-	private WHighChartChartEventsOptions events;
-
-	/**
 	 * Fill opacity for the area. Defaults to .75.
 	 */
 	private Number fillOpacity;
+
+	private String color;
+
+	private Number pointWidth;
+
+	private WHighChartPointerType cursor;
+
+	private Boolean shadow;
+
+	private Number zIndex;
+
+	private WHighChartPlotStatesOptions<T> states;
+
+	/**
+	 * Event listeners for chart events.
+	 */
+	private WHighChartChartEventsOptions events;
 
 	public WHighChartPlotDashStyleType getDashStyle()
 	{
@@ -58,6 +71,78 @@ public class AbstractWHighChartPlotChartOptions<T extends AbstractWHighChartPlot
 		return (T) this;
 	}
 
+	public String getColor()
+	{
+		return color;
+	}
+
+	@SuppressWarnings("unchecked")
+	public T setColor(String color)
+	{
+		this.color = color;
+		return (T) this;
+	}
+
+	public Number getPointWidth()
+	{
+		return pointWidth;
+	}
+
+	@SuppressWarnings("unchecked")
+	public T setPointWidth(Number pointWidth)
+	{
+		this.pointWidth = pointWidth;
+		return (T) this;
+	}
+
+	public WHighChartPointerType getCursor()
+	{
+		return cursor;
+	}
+
+	@SuppressWarnings("unchecked")
+	public T setCursor(WHighChartPointerType cursor)
+	{
+		this.cursor = cursor;
+		return (T) this;
+	}
+
+	public Boolean getShadow()
+	{
+		return shadow;
+	}
+
+	@SuppressWarnings("unchecked")
+	public T setShadow(Boolean shadow)
+	{
+		this.shadow = shadow;
+		return (T) this;
+	}
+
+	@SuppressWarnings("unchecked")
+	public T setZIndex(Number zIndex)
+	{
+		this.zIndex = zIndex;
+		return (T) this;
+	}
+
+	public Number getZIndex()
+	{
+		return zIndex;
+	}
+
+	public WHighChartPlotStatesOptions<T> getStates()
+	{
+		return states;
+	}
+
+	@SuppressWarnings("unchecked")
+	public T setStates(WHighChartPlotStatesOptions<T> states)
+	{
+		this.states = states;
+		return (T) this;
+	}
+
 	public WHighChartChartEventsOptions getEvents()
 	{
 		if (events == null)
@@ -66,9 +151,10 @@ public class AbstractWHighChartPlotChartOptions<T extends AbstractWHighChartPlot
 		return events;
 	}
 
-	public AbstractWHighChartPlotChartOptions< ? > setEvents(WHighChartChartEventsOptions events)
+	@SuppressWarnings("unchecked")
+	public T setEvents(WHighChartChartEventsOptions events)
 	{
 		this.events = events;
-		return this;
+		return (T) this;
 	}
 }

@@ -3,8 +3,6 @@ package nl.topicus.whighcharts.options.chart;
 import java.io.Serializable;
 import java.util.Arrays;
 
-import nl.topicus.whighcharts.components.WHighChart;
-
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -50,7 +48,7 @@ public class WHighChartChartOptions implements Serializable
 	/**
 	 * The background color or gradient for the outer chart area. Defaults to "#FFFFFF".
 	 */
-	private String backgroundColor;
+	private Object backgroundColor;
 
 	/**
 	 * The color of the outer chart border. The border is painted using vector graphic
@@ -273,12 +271,12 @@ public class WHighChartChartOptions implements Serializable
 		return this;
 	}
 
-	public String getBackgroundColor()
+	public Object getBackgroundColor()
 	{
 		return backgroundColor;
 	}
 
-	public WHighChartChartOptions setBackgroundColor(String backgroundColor)
+	public WHighChartChartOptions setBackgroundColor(Object backgroundColor)
 	{
 		this.backgroundColor = backgroundColor;
 		return this;

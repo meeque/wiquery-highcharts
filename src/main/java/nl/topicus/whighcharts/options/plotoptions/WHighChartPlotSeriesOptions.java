@@ -1,7 +1,5 @@
 package nl.topicus.whighcharts.options.plotoptions;
 
-import java.io.Serializable;
-
 import nl.topicus.whighcharts.options.point.WHighChartPointOptions;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
@@ -11,7 +9,8 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonSerialize(include = Inclusion.NON_NULL)
-public class WHighChartPlotSeriesOptions implements Serializable
+public class WHighChartPlotSeriesOptions extends
+		AbstractWHighChartPlotChartOptions<WHighChartPlotSeriesOptions>
 {
 	private static final long serialVersionUID = 1L;
 

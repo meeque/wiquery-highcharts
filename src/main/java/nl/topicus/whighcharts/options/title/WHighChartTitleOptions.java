@@ -38,6 +38,7 @@ public class WHighChartTitleOptions implements Serializable
 	 * The title of the chart. To disable the title, set the text to null. Defaults to
 	 * "Chart title".
 	 */
+	@JsonSerialize(include = Inclusion.ALWAYS)
 	private String text;
 
 	/**

@@ -1,5 +1,7 @@
 package nl.topicus.whighcharts.options.series;
 
+import nl.topicus.whighcharts.options.point.WHighChartPointEventsOptions;
+
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -19,7 +21,7 @@ public class ObjectSeriesEntry implements ISeriesEntry<Number>
 	/**
 	 * Individual events for the point. Defaults to null.
 	 */
-	private String events;
+	private WHighChartPointEventsOptions events;
 
 	/**
 	 * An id for the point. This can be used after render time to get a pointer to the
@@ -71,12 +73,14 @@ public class ObjectSeriesEntry implements ISeriesEntry<Number>
 		return this;
 	}
 
-	public String getEvents()
+	public WHighChartPointEventsOptions getEvents()
 	{
+		if (events == null)
+			events = new WHighChartPointEventsOptions();
 		return events;
 	}
 
-	public ObjectSeriesEntry setEvents(String events)
+	public ObjectSeriesEntry setEvents(WHighChartPointEventsOptions events)
 	{
 		this.events = events;
 		return this;

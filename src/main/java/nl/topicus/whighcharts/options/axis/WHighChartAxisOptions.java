@@ -18,7 +18,17 @@ public class WHighChartAxisOptions implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
+	private Integer linkedTo;
+
+	private WHighChartAxisOptionsType type;
+
+	private Boolean opposite;
+
 	private WHighChartAxisLabelsOptions labels;
+
+	private Boolean showFirstLabel;
+
+	private Boolean showLastLabel;
 
 	private WHighChartTitleOptions title;
 
@@ -30,17 +40,70 @@ public class WHighChartAxisOptions implements Serializable
 	 * An array of configuration objects for plot bands colouring parts of the plot area
 	 * background. Defaults to null.
 	 */
-	List<WHighChartAxisPlotBandsOptions> plotBands;
+	private List<WHighChartAxisPlotBandsOptions> plotBands;
 
 	private Number gridLineWidth;
 
-	List<WHighChartAxisPlotLinesOptions> plotLines;
+	private String gridLineColor;
+
+	private String gridLineDashStyle;
+
+	private List<WHighChartAxisPlotLinesOptions> plotLines;
 
 	private Number offset;
 
 	private Number max;
 
+	private Number lineWidth;
+
+	private String lineColor;
+
+	private WHighChartAxisOptionsTickmarkPlacement tickmarkPlacement;
+
+	private WHighChartAxisOptionsTickPosition tickPosition;
+
 	private Number tickInterval;
+
+	private Number tickLength;
+
+	private Number tickWidth;
+
+	private String tickColor;
+
+	private WHighChartAxisDateTimeLabelFormatsOptions dateTimeLabelFormats;
+
+	public Integer getLinkedTo()
+	{
+		return linkedTo;
+	}
+
+	public WHighChartAxisOptions setLinkedTo(Integer linkedTo)
+	{
+		this.linkedTo = linkedTo;
+		return this;
+	}
+
+	public WHighChartAxisOptionsType getType()
+	{
+		return type;
+	}
+
+	public WHighChartAxisOptions setType(WHighChartAxisOptionsType type)
+	{
+		this.type = type;
+		return this;
+	}
+
+	public Boolean getOpposite()
+	{
+		return opposite;
+	}
+
+	public WHighChartAxisOptions setOpposite(Boolean opposite)
+	{
+		this.opposite = opposite;
+		return this;
+	}
 
 	public WHighChartAxisLabelsOptions getLabels()
 	{
@@ -53,6 +116,28 @@ public class WHighChartAxisOptions implements Serializable
 	public WHighChartAxisOptions setLabels(WHighChartAxisLabelsOptions labels)
 	{
 		this.labels = labels;
+		return this;
+	}
+
+	public Boolean getShowFirstLabel()
+	{
+		return showFirstLabel;
+	}
+
+	public WHighChartAxisOptions setShowFirstLabel(Boolean showFirstLabel)
+	{
+		this.showFirstLabel = showFirstLabel;
+		return this;
+	}
+
+	public Boolean getShowLastLabel()
+	{
+		return showLastLabel;
+	}
+
+	public WHighChartAxisOptions setShowLastLabel(Boolean showLastLabel)
+	{
+		this.showLastLabel = showLastLabel;
 		return this;
 	}
 
@@ -132,6 +217,28 @@ public class WHighChartAxisOptions implements Serializable
 		return gridLineWidth;
 	}
 
+	public String getGridLineColor()
+	{
+		return gridLineColor;
+	}
+
+	public WHighChartAxisOptions setGridLineColor(String gridLineColor)
+	{
+		this.gridLineColor = gridLineColor;
+		return this;
+	}
+
+	public String getGridLineDashStyle()
+	{
+		return gridLineDashStyle;
+	}
+
+	public WHighChartAxisOptions setGridLineDashStyle(String gridLineDashStyle)
+	{
+		this.gridLineDashStyle = gridLineDashStyle;
+		return this;
+	}
+
 	public List<WHighChartAxisPlotLinesOptions> getPlotLines()
 	{
 		if (plotLines == null)
@@ -174,6 +281,51 @@ public class WHighChartAxisOptions implements Serializable
 		return max;
 	}
 
+	public Number getLineWidth()
+	{
+		return lineWidth;
+	}
+
+	public WHighChartAxisOptions setLineWidth(Number lineWidth)
+	{
+		this.lineWidth = lineWidth;
+		return this;
+	}
+
+	public String getLineColor()
+	{
+		return lineColor;
+	}
+
+	public WHighChartAxisOptions setLineColor(String lineColor)
+	{
+		this.lineColor = lineColor;
+		return this;
+	}
+
+	public WHighChartAxisOptionsTickmarkPlacement getTickmarkPlacement()
+	{
+		return tickmarkPlacement;
+	}
+
+	public WHighChartAxisOptions setTickmarkPlacement(
+			WHighChartAxisOptionsTickmarkPlacement tickmarkPlacement)
+	{
+		this.tickmarkPlacement = tickmarkPlacement;
+		return this;
+	}
+
+	public WHighChartAxisOptionsTickPosition getTickPosition()
+	{
+		return tickPosition;
+	}
+
+	public WHighChartAxisOptions setTickPosition(WHighChartAxisOptionsTickPosition tickPosition)
+	{
+		this.tickPosition = tickPosition;
+		return this;
+	}
+
 	public Number getTickInterval()
 	{
 		return tickInterval;
@@ -182,6 +334,54 @@ public class WHighChartAxisOptions implements Serializable
 	public WHighChartAxisOptions setTickInterval(Number tickInterval)
 	{
 		this.tickInterval = tickInterval;
+		return this;
+	}
+
+	public Number getTickLength()
+	{
+		return tickLength;
+	}
+
+	public WHighChartAxisOptions setTickLength(Number tickLength)
+	{
+		this.tickLength = tickLength;
+		return this;
+	}
+
+	public Number getTickWidth()
+	{
+		return tickWidth;
+	}
+
+	public WHighChartAxisOptions setTickWidth(Number tickWidth)
+	{
+		this.tickWidth = tickWidth;
+		return this;
+	}
+
+	public String getTickColor()
+	{
+		return tickColor;
+	}
+
+	public WHighChartAxisOptions setTickColor(String tickColor)
+	{
+		this.tickColor = tickColor;
+		return this;
+	}
+
+	public WHighChartAxisDateTimeLabelFormatsOptions getDateTimeLabelFormats()
+	{
+		if (dateTimeLabelFormats == null)
+			dateTimeLabelFormats = new WHighChartAxisDateTimeLabelFormatsOptions();
+
+		return dateTimeLabelFormats;
+	}
+
+	public WHighChartAxisOptions setDateTimeLabelFormats(
+			WHighChartAxisDateTimeLabelFormatsOptions dateTimeLabelFormats)
+	{
+		this.dateTimeLabelFormats = dateTimeLabelFormats;
 		return this;
 	}
 }

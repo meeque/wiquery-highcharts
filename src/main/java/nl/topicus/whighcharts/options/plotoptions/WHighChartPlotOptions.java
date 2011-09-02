@@ -2,7 +2,6 @@ package nl.topicus.whighcharts.options.plotoptions;
 
 import java.io.Serializable;
 
-
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -19,9 +18,9 @@ public class WHighChartPlotOptions implements Serializable
 
 	private AbstractWHighChartPlotChartOptions areaspline;
 
-	private AbstractWHighChartPlotChartOptions bar;
+	private WHighChartPlotBarOptions bar;
 
-	private AbstractWHighChartPlotChartOptions column;
+	private WHighChartPlotColumnOptions column;
 
 	private AbstractWHighChartPlotChartOptions line;
 
@@ -61,29 +60,29 @@ public class WHighChartPlotOptions implements Serializable
 		return this;
 	}
 
-	public AbstractWHighChartPlotChartOptions getBar()
+	public WHighChartPlotBarOptions getBar()
 	{
 		if (bar == null)
-			bar = new AbstractWHighChartPlotChartOptions();
+			bar = new WHighChartPlotBarOptions();
 
 		return bar;
 	}
 
-	public WHighChartPlotOptions setBar(AbstractWHighChartPlotChartOptions bar)
+	public WHighChartPlotOptions setBar(WHighChartPlotBarOptions bar)
 	{
 		this.bar = bar;
 		return this;
 	}
 
-	public AbstractWHighChartPlotChartOptions getColumn()
+	public WHighChartPlotColumnOptions getColumn()
 	{
 		if (column == null)
-			column = new AbstractWHighChartPlotChartOptions();
+			column = new WHighChartPlotColumnOptions();
 
 		return column;
 	}
 
-	public WHighChartPlotOptions setColumn(AbstractWHighChartPlotChartOptions column)
+	public WHighChartPlotOptions setColumn(WHighChartPlotColumnOptions column)
 	{
 		this.column = column;
 		return this;

@@ -13,6 +13,7 @@ public interface WHighChartFunction extends Serializable
 			visible = getValue(map, "this.visible");
 			category = getValue(map, "event.point.category");
 			config = getValue(map, "event.point.config");
+			point = new WHighChartFunctionEventPoint(map);
 			x = getValue(map, "this.x");
 			y = getValue(map, "this.y");
 			type = getValue(map, "event.type");
@@ -51,6 +52,8 @@ public interface WHighChartFunction extends Serializable
 		private String category;
 
 		private String config;
+
+		private WHighChartFunctionEventPoint point;
 
 		private String x;
 
@@ -95,6 +98,11 @@ public interface WHighChartFunction extends Serializable
 		public String getConfig()
 		{
 			return config;
+		}
+
+		public WHighChartFunctionEventPoint getPoint()
+		{
+			return point;
 		}
 
 		public String getX()
@@ -196,6 +204,57 @@ public interface WHighChartFunction extends Serializable
 		public String getMax()
 		{
 			return max;
+		}
+	}
+
+	public static class WHighChartFunctionEventPoint implements Serializable
+	{
+		private static final long serialVersionUID = 1L;
+
+		private String category;
+
+		private String x;
+
+		private String y;
+
+		private String selected;
+
+		public WHighChartFunctionEventPoint(Map<String, String[]> map)
+		{
+			category = getValue(map, "event.point.category");
+			x = getValue(map, "event.point.x");
+			y = getValue(map, "event.point.y");
+			selected = getValue(map, "event.point.selected");
+		}
+
+		private String getValue(Map<String, String[]> map, String key)
+		{
+			String[] values = map.get(key);
+			if (values != null && values.length > 0 && values[0] != null
+				&& values[0].trim().length() > 0 && !"undefined".equals(values[0].trim()))
+				return values[0];
+
+			return null;
+		}
+
+		public String getCategory()
+		{
+			return category;
+		}
+
+		public String getX()
+		{
+			return x;
+		}
+
+		public String getY()
+		{
+			return y;
+		}
+
+		public String getSelected()
+		{
+			return selected;
 		}
 	}
 

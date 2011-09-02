@@ -3,9 +3,9 @@ package nl.topicus.whighcharts.options;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
-import nl.topicus.whighcharts.components.WHighChart;
 import nl.topicus.whighcharts.options.axis.WHighChartAxisOptions;
 import nl.topicus.whighcharts.options.chart.WHighChartChartOptions;
 import nl.topicus.whighcharts.options.credits.WHighChartCreditsOptions;
@@ -26,7 +26,6 @@ import nl.topicus.whighcharts.options.tooltip.WHighChartTooltipOptions;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
-import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
@@ -35,12 +34,6 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializable
 {
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * Reference to the main chart object, not to be serialized into an option;
-	 */
-	@JsonIgnore
-	private WHighChart<V, E> wHighChart;
 
 	private WHighChartChartOptions chart;
 
@@ -72,9 +65,9 @@ public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializ
 
 	private List<WHighChartSymbolsOptionsType> symbols;
 
-	private WHighChartAxisOptions xAxis;
+	private List<WHighChartAxisOptions> xAxis;
 
-	private WHighChartAxisOptions yAxis;
+	private List<WHighChartAxisOptions> yAxis;
 
 	/**
 	 * Exporting module
@@ -84,9 +77,8 @@ public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializ
 
 	private WHighChartNavigationOptions navigation;
 
-	public WHighChartOptions(WHighChart<V, E> wHighChart)
+	public WHighChartOptions()
 	{
-		getChart().setRenderTo(wHighChart.getMarkupId());
 	}
 
 	public WHighChartChartOptions getChart()
@@ -235,22 +227,17 @@ public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializ
 		return symbols;
 	}
 
-	public WHighChart<V, E> getwHighChart()
-	{
-		return wHighChart;
-	}
-
-	public WHighChartAxisOptions getxAxis()
+	public List<WHighChartAxisOptions> getxAxis()
 	{
 		if (xAxis == null)
-			xAxis = new WHighChartAxisOptions();
+			xAxis = new LinkedList<WHighChartAxisOptions>();
 		return xAxis;
 	}
 
-	public WHighChartAxisOptions getyAxis()
+	public List<WHighChartAxisOptions> getyAxis()
 	{
 		if (yAxis == null)
-			yAxis = new WHighChartAxisOptions();
+			yAxis = new LinkedList<WHighChartAxisOptions>();
 		return yAxis;
 	}
 
@@ -362,15 +349,27 @@ public class WHighChartOptions<V, E extends ISeriesEntry<V>> implements Serializ
 		return this;
 	}
 
-	public WHighChartOptions<V, E> setxAxis(WHighChartAxisOptions xAxis)
+	public WHighChartOptions<V, E> setxAxis(List<WHighChartAxisOptions> xAxis)
 	{
 		this.xAxis = xAxis;
 		return this;
 	}
 
-	public WHighChartOptions<V, E> setyAxis(WHighChartAxisOptions yAxis)
+	public WHighChartOptions<V, E> setyAxis(List<WHighChartAxisOptions> yAxis)
 	{
 		this.yAxis = yAxis;
+		return this;
+	}
+
+	public WHighChartOptions<V, E> addxAxis(WHighChartAxisOptions axis)
+	{
+		getxAxis().add(axis);
+		return this;
+	}
+
+	public WHighChartOptions<V, E> addyAxis(WHighChartAxisOptions axis)
+	{
+		getyAxis().add(axis);
 		return this;
 	}
 }

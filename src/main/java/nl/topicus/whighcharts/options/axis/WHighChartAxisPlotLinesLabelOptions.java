@@ -15,6 +15,7 @@ public class WHighChartAxisPlotLinesLabelOptions implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
+	@JsonSerialize(include = Inclusion.ALWAYS)
 	private String text;
 
 	private String align;
