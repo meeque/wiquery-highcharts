@@ -2,34 +2,26 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.sonatype.oss</groupId>
-		<artifactId>oss-parent</artifactId>
-		<version>7</version>
-	</parent>
-
+	
 	<groupId>nl.topicus</groupId>
 	<artifactId>whighcharts</artifactId>
 	<packaging>jar</packaging>
-	<version>0.1-SNAPSHOT</version>
+	<version>0.1-travelviva-SNAPSHOT</version>
 	<name>WHighCharts</name>
 	<description>WiQuery-HighCharts bindings</description>
+	<parent>
+		<groupId>de.travelviva</groupId>
+		<artifactId>travelviva</artifactId>
+		<version>1.3-SNAPSHOT</version>
+	</parent>
 
 	<properties>
-		<wicket.version>1.4.15</wicket.version>
+		<wicket.version>1.4.17</wicket.version>
 		<jetty.version>6.1.25</jetty.version>
 		<slf4j.version>1.6.1</slf4j.version>
 		<jackson.version>1.6.1</jackson.version>
-		<wiquery.version>1.2-SNAPSHOT</wiquery.version>
+		<wiquery.version>1.2.4</wiquery.version>
 	</properties>
-
-
-	<url>https://github.com/hielkehoeve/wiquery-highcharts/wiki</url>
-	<scm>
-		<url>git@github.com:hielkehoeve/wiquery-highcharts.git</url>
-		<connection>scm:git:git@github.com:hielkehoeve/wiquery-highcharts.git</connection>
-		<developerConnection>scm:git:git@github.com:hielkehoeve/wiquery-highcharts.git</developerConnection>
-	</scm>
 
 	<developers>
 		<developer>
@@ -39,6 +31,11 @@
 			<email>hielke.hoeve@gmail.com</email>
 			<timezone>GMT+1</timezone>
 		</developer>
+		<developer>
+			<id>meeque</id>
+			<name>Michael Riedel</name>
+		</developer>
+		
 	</developers>
 
 	<licenses>
@@ -48,41 +45,12 @@
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-api</artifactId>
-				<version>${slf4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>jcl-over-slf4j</artifactId>
-				<version>${slf4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-log4j12</artifactId>
-				<version>${slf4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>log4j</groupId>
-				<artifactId>log4j</artifactId>
-				<version>1.2.16</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 	<dependencies>
 		<!-- WICKET DEPENDENCIES -->
 		<dependency>
 			<groupId>org.apache.wicket</groupId>
 			<artifactId>wicket</artifactId>
 			<version>${wicket.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.odlabs.wiquery</groupId>
-			<artifactId>wiquery</artifactId>
-			<version>${wiquery.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
@@ -93,51 +61,6 @@
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>${jackson.version}</version>
-		</dependency>
-		<!-- LOGGING DEPENDENCIES - LOG4J -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-		</dependency>
-
-		<!-- JUNIT DEPENDENCY FOR TESTING -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.8.2</version>
-			<scope>test</scope>
-		</dependency>
-
-		<!-- JETTY DEPENDENCIES FOR TESTING -->
-		<dependency>
-			<groupId>org.mortbay.jetty</groupId>
-			<artifactId>jetty</artifactId>
-			<version>${jetty.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.mortbay.jetty</groupId>
-			<artifactId>jetty-util</artifactId>
-			<version>${jetty.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.mortbay.jetty</groupId>
-			<artifactId>jetty-management</artifactId>
-			<version>${jetty.version}</version>
-			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 	<build>
@@ -214,18 +137,13 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.9-SNAPSHOT</version>
-				<inherited>true</inherited>
-				<configuration>
-					<downloadSources>true</downloadSources>
-					<downloadJavadoc>false</downloadJavadoc>
-				</configuration>
-			</plugin>
-			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>maven-jetty-plugin</artifactId>
 				<version>${jetty.version}</version>
+				<configuration>
+					<classesDirectory>target/test-classes</classesDirectory>
+					<webAppSourceDirectory>src/test/webapp</webAppSourceDirectory>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
