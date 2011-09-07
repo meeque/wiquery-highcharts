@@ -9,11 +9,6 @@
 	<version>0.1-travelviva-SNAPSHOT</version>
 	<name>WHighCharts</name>
 	<description>WiQuery-HighCharts bindings</description>
-	<parent>
-		<groupId>de.travelviva</groupId>
-		<artifactId>travelviva</artifactId>
-		<version>1.3-SNAPSHOT</version>
-	</parent>
 
 	<properties>
 		<wicket.version>1.4.17</wicket.version>
@@ -35,7 +30,6 @@
 			<id>meeque</id>
 			<name>Michael Riedel</name>
 		</developer>
-		
 	</developers>
 
 	<licenses>
@@ -45,13 +39,8 @@
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
+	
 	<dependencies>
-		<!-- WICKET DEPENDENCIES -->
-		<dependency>
-			<groupId>org.apache.wicket</groupId>
-			<artifactId>wicket</artifactId>
-			<version>${wicket.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-core-asl</artifactId>
@@ -63,6 +52,7 @@
 			<version>${jackson.version}</version>
 		</dependency>
 	</dependencies>
+	
 	<build>
 		<resources>
 			<resource>
@@ -135,15 +125,6 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.mortbay.jetty</groupId>
-				<artifactId>maven-jetty-plugin</artifactId>
-				<version>${jetty.version}</version>
-				<configuration>
-					<classesDirectory>target/test-classes</classesDirectory>
-					<webAppSourceDirectory>src/test/webapp</webAppSourceDirectory>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
