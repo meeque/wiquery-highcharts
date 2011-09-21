@@ -9,21 +9,26 @@ public class WHighChartFunctionString implements WHighChartFunction
 {
 	private static final long serialVersionUID = 1L;
 
-	private String function;
+	private String functionBody;
 
-	public WHighChartFunctionString(String function)
+	public WHighChartFunctionString(String functionBody)
 	{
-		this.function = function;
+		this.functionBody = functionBody;
 	}
 
 	@Override
 	public String toString()
 	{
 		StringBuilder builder = new StringBuilder();
-		builder.append("function(event){\n ");
-		builder.append(function);
-		builder.append("\n }");
+		builder.append( "function(event){\n " );
+		builder.append( getFunctionBody() );
+		builder.append( "\n }" );
 		return builder.toString();
+	}
+
+	public String getFunctionBody()
+	{
+		return functionBody;
 	}
 
 }
