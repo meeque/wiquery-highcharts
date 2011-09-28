@@ -16,11 +16,27 @@ public class WHighChartFunctionCompound extends AbstractWHighChartFunction
 		this( true, functions);
 	}
 
-	public WHighChartFunctionCompound( boolean validateParams, WHighChartFunction ... functions )
+	public WHighChartFunctionCompound( boolean validateParams, WHighChartFunction ... functions ) throws IllegalArgumentException
 	{
+		if( validateParams )
+		{
+			for( int i = 0; i < functions.length - 1; i++ )
+			{
+				for( int j = i + 1; j < functions.length; j++ )
+				{
+					final String[] paramsI = functions[i].getParamNames();
+					final String[] paramsJ = functions[j].getParamNames();
+					for( int k = 0; k < paramsI.length && k < paramsJ.length ; k++ )
+					{
+						if( ! paramsI[k].equals( paramsJ[k] ) )
+						{
+							throw new IllegalArgumentException( "Validation of function params for compound function failed. Function " + i + " and function " + j + " differ in param names at param " + k + "." );
+						}
+					}
+				}
+			}
+		}
 		this.functions = functions;
-		
-		// TODO add params validation
 	}
 
 	@Override
@@ -30,7 +46,7 @@ public class WHighChartFunctionCompound extends AbstractWHighChartFunction
 		
 		for( final WHighChartFunction f : functions )
 		{
-			builder.append( "( " ).append( f ).append( " )( " + getParamsList() + " );" ); 
+			builder.append( "( " ).append( f ).append( " ).apply( this, arguments );" ); 
 		}
 		// TODO add return value
 		
@@ -40,6 +56,7 @@ public class WHighChartFunctionCompound extends AbstractWHighChartFunction
 	@Override
 	public String[] getParamNames()
 	{
+		// TODO use param list of function with longest params list rather than first one?
 		return ( functions.length > 0 ) ? functions[0].getParamNames() : new String[] {};
 	}
 	
