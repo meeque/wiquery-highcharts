@@ -105,7 +105,7 @@ public class WHighChartChartEventsOptions implements Serializable
 		return this;
 	}
 
-	public Object getClick()
+	public WHighChartFunction getClick()
 	{
 		return click;
 	}
@@ -116,7 +116,7 @@ public class WHighChartChartEventsOptions implements Serializable
 		return this;
 	}
 
-	public Object getLoad()
+	public WHighChartFunction getLoad()
 	{
 		return load;
 	}
@@ -127,7 +127,7 @@ public class WHighChartChartEventsOptions implements Serializable
 		return this;
 	}
 
-	public Object getRedraw()
+	public WHighChartFunction getRedraw()
 	{
 		return redraw;
 	}
@@ -138,7 +138,7 @@ public class WHighChartChartEventsOptions implements Serializable
 		return this;
 	}
 
-	public Object getSelection()
+	public WHighChartFunction getSelection()
 	{
 		return selection;
 	}
