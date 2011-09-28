@@ -84,6 +84,7 @@ public class AbstractSeries<V, E extends ISeriesEntry<V>> implements ISeries<V, 
 		return (T) this;
 	}
 
+	@Override
 	public String getName()
 	{
 		return name;
@@ -96,6 +97,7 @@ public class AbstractSeries<V, E extends ISeriesEntry<V>> implements ISeries<V, 
 		return (T) this;
 	}
 
+	@Override
 	public Object getStack()
 	{
 		return stack;
@@ -108,6 +110,7 @@ public class AbstractSeries<V, E extends ISeriesEntry<V>> implements ISeries<V, 
 		return (T) this;
 	}
 
+	@Override
 	public WHighChartChartOptionsType getType()
 	{
 		return type;
@@ -120,6 +123,7 @@ public class AbstractSeries<V, E extends ISeriesEntry<V>> implements ISeries<V, 
 		return (T) this;
 	}
 
+	@Override
 	public Number getxAxis()
 	{
 		return xAxis;
@@ -132,6 +136,7 @@ public class AbstractSeries<V, E extends ISeriesEntry<V>> implements ISeries<V, 
 		return (T) this;
 	}
 
+	@Override
 	public Number getyAxis()
 	{
 		return yAxis;
