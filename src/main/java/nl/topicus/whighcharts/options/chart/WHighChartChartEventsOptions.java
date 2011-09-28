@@ -9,6 +9,8 @@ import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
+import static nl.topicus.whighcharts.options.WHighChartFunctionCompound.buildCompound;
+
 @JsonAutoDetect(fieldVisibility = Visibility.ANY, getterVisibility = Visibility.NONE, setterVisibility = Visibility.NONE)
 @JsonSerialize(include = Inclusion.NON_NULL)
 public class WHighChartChartEventsOptions implements Serializable
@@ -116,6 +118,12 @@ public class WHighChartChartEventsOptions implements Serializable
 		return this;
 	}
 
+	public WHighChartChartEventsOptions addClick(WHighChartFunction click)
+	{
+		this.click = buildCompound( this.click, click );
+		return this;
+	}
+
 	public WHighChartFunction getLoad()
 	{
 		return load;
@@ -124,6 +132,12 @@ public class WHighChartChartEventsOptions implements Serializable
 	public WHighChartChartEventsOptions setLoad(WHighChartFunction load)
 	{
 		this.load = load;
+		return this;
+	}
+
+	public WHighChartChartEventsOptions addLoad(WHighChartFunction load)
+	{
+		this.load = buildCompound( this.load, load);
 		return this;
 	}
 
@@ -138,6 +152,12 @@ public class WHighChartChartEventsOptions implements Serializable
 		return this;
 	}
 
+	public WHighChartChartEventsOptions addRedraw(WHighChartFunction redraw)
+	{
+		this.redraw = buildCompound( this.redraw, redraw );
+		return this;
+	}
+
 	public WHighChartFunction getSelection()
 	{
 		return selection;
@@ -146,6 +166,12 @@ public class WHighChartChartEventsOptions implements Serializable
 	public WHighChartChartEventsOptions setSelection(WHighChartFunction selection)
 	{
 		this.selection = selection;
+		return this;
+	}
+
+	public WHighChartChartEventsOptions addSelection(WHighChartFunction selection)
+	{
+		this.selection = buildCompound( this.selection, selection );
 		return this;
 	}
 }
