@@ -46,11 +46,13 @@ public class WHighChartFunctionString implements WHighChartFunction
 		return builder.toString();
 	}
 
+	@Override
 	public String getFunctionBody()
 	{
 		return functionBody;
 	}
 	
+	@Override
 	public String[] getParamNames()
 	{
 		return paramNames;

@@ -259,6 +259,20 @@ public interface WHighChartFunction extends Serializable
 	}
 
 	/**
+	 * Get the names of the parameters of the JavaScript function.
+	 * It is the implementors responsibility to assure that all parameter names are valid JavaScript identifiers.
+	 * @return
+	 */
+	public String[] getParamNames();
+
+	/**
+	 * Get the body of the JavaScript function.
+	 * It is the implementors responsibility to assure that this is a valid JavaScript code block.
+	 * @return
+	 */
+	public String getFunctionBody();
+
+	/**
 	 * <p>
 	 * Implementors must implement this function and place the following annotation on the
 	 * class:
