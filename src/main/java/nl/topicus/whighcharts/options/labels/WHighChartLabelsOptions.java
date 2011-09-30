@@ -1,6 +1,7 @@
 package nl.topicus.whighcharts.options.labels;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
@@ -17,30 +18,39 @@ public class WHighChartLabelsOptions implements Serializable
 	/**
 	 * An array containing configuration for each label.
 	 */
-	private List<String> items;
+	private List<WHighChartLabelsItemsOptions> items;
 
 	/**
 	 * Shared CSS styles for all labels. Defaults to: style: { color: '#3E576F' }
 	 */
-	private String style;
+	private Object style;
 
-	public List<String> getItems()
+	public List<WHighChartLabelsItemsOptions> getItems()
 	{
+		if (items == null)
+			items = new ArrayList<WHighChartLabelsItemsOptions>();
+		
 		return items;
 	}
 
-	public WHighChartLabelsOptions setItems(List<String> items)
+	public WHighChartLabelsOptions setItems(List<WHighChartLabelsItemsOptions> items)
 	{
 		this.items = items;
 		return this;
 	}
 
-	public String getStyle()
+	public WHighChartLabelsOptions addItem(WHighChartLabelsItemsOptions item)
+	{
+		getItems().add(item);
+		return this;
+	}
+
+	public Object getStyle()
 	{
 		return style;
 	}
 
-	public WHighChartLabelsOptions setStyle(String style)
+	public WHighChartLabelsOptions setStyle(Object style)
 	{
 		this.style = style;
 		return this;
