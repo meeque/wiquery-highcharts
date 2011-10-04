@@ -2,7 +2,7 @@ package nl.topicus.whighcharts.options.tooltip;
 
 import java.io.Serializable;
 
-import nl.topicus.whighcharts.options.jackson.ToStringNoQuoteSerializer;
+import nl.topicus.whighcharts.options.WHighChartFunction;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
@@ -17,8 +17,7 @@ public class WHighChartTooltipOptions implements Serializable
 
 	private Boolean enabled;
 
-	@JsonSerialize(using = ToStringNoQuoteSerializer.class)
-	private String formatter;
+	private WHighChartFunction formatter;
 
 	private String backgroundColor;
 
@@ -47,12 +46,12 @@ public class WHighChartTooltipOptions implements Serializable
 		return this;
 	}
 
-	public String getFormatter()
+	public WHighChartFunction getFormatter()
 	{
 		return formatter;
 	}
 
-	public WHighChartTooltipOptions setFormatter(String formatter)
+	public WHighChartTooltipOptions setFormatter(WHighChartFunction formatter)
 	{
 		this.formatter = formatter;
 		return this;
