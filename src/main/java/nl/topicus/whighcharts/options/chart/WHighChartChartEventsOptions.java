@@ -118,9 +118,15 @@ public class WHighChartChartEventsOptions implements Serializable
 		return this;
 	}
 
-	public WHighChartChartEventsOptions addClick(WHighChartFunction click)
+	public WHighChartChartEventsOptions appendClick(WHighChartFunction click)
 	{
 		this.click = buildCompound( this.click, click );
+		return this;
+	}
+
+	public WHighChartChartEventsOptions prependClick(WHighChartFunction click)
+	{
+		this.click = buildCompound( click, this.click );
 		return this;
 	}
 
@@ -135,9 +141,15 @@ public class WHighChartChartEventsOptions implements Serializable
 		return this;
 	}
 
-	public WHighChartChartEventsOptions addLoad(WHighChartFunction load)
+	public WHighChartChartEventsOptions appendLoad(WHighChartFunction load)
 	{
 		this.load = buildCompound( this.load, load);
+		return this;
+	}
+
+	public WHighChartChartEventsOptions prependLoad(WHighChartFunction load)
+	{
+		this.load = buildCompound( load, this.load);
 		return this;
 	}
 
@@ -152,9 +164,15 @@ public class WHighChartChartEventsOptions implements Serializable
 		return this;
 	}
 
-	public WHighChartChartEventsOptions addRedraw(WHighChartFunction redraw)
+	public WHighChartChartEventsOptions appendRedraw(WHighChartFunction redraw)
 	{
 		this.redraw = buildCompound( this.redraw, redraw );
+		return this;
+	}
+
+	public WHighChartChartEventsOptions prependRedraw(WHighChartFunction redraw)
+	{
+		this.redraw = buildCompound( redraw, this.redraw );
 		return this;
 	}
 
@@ -169,9 +187,15 @@ public class WHighChartChartEventsOptions implements Serializable
 		return this;
 	}
 
-	public WHighChartChartEventsOptions addSelection(WHighChartFunction selection)
+	public WHighChartChartEventsOptions appendSelection(WHighChartFunction selection)
 	{
 		this.selection = buildCompound( this.selection, selection );
+		return this;
+	}
+
+	public WHighChartChartEventsOptions prependSelection(WHighChartFunction selection)
+	{
+		this.selection = buildCompound( selection, this.selection );
 		return this;
 	}
 }
