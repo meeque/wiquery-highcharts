@@ -142,4 +142,9 @@
 			</plugin>
 		</plugins>
 	</build>
+	<parent>
+		<groupId>de.meeque</groupId>
+		<artifactId>meeque-parent</artifactId>
+		<version>0.1-SNAPSHOT</version>
+	</parent>
 </project>
