@@ -22,7 +22,7 @@ public class WHighChartLoadingOptions implements Serializable
 	 * CSS styles for the loading label span. Defaults to: labelStyle: { fontWeight:
 	 * 'bold', position: 'relative', top: '1em' }
 	 */
-	private String labelStyle;
+	private Object labelStyle;
 
 	/**
 	 * The duration in milliseconds of the fade in effect. Defaults to 100.
@@ -33,7 +33,7 @@ public class WHighChartLoadingOptions implements Serializable
 	 * CSS styles for the loading screen that covers the plot area. Defaults to: style: {
 	 * position: 'absolute', backgroundColor: 'white', opacity: 0.5, textAlign: 'center' }
 	 */
-	private String style;
+	private Object style;
 
 	public Number getHideDuration()
 	{
@@ -46,12 +46,12 @@ public class WHighChartLoadingOptions implements Serializable
 		return this;
 	}
 
-	public String getLabelStyle()
+	public Object getLabelStyle()
 	{
 		return labelStyle;
 	}
 
-	public WHighChartLoadingOptions setLabelStyle(String labelStyle)
+	public WHighChartLoadingOptions setLabelStyle(Object labelStyle)
 	{
 		this.labelStyle = labelStyle;
 		return this;
@@ -68,12 +68,12 @@ public class WHighChartLoadingOptions implements Serializable
 		return this;
 	}
 
-	public String getStyle()
+	public Object getStyle()
 	{
 		return style;
 	}
 
-	public WHighChartLoadingOptions setStyle(String style)
+	public WHighChartLoadingOptions setStyle(Object style)
 	{
 		this.style = style;
 		return this;
