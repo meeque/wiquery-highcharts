@@ -1,5 +1,9 @@
 package nl.topicus.whighcharts.options;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 import nl.topicus.whighcharts.options.jackson.ToStringNoQuoteSerializer;
 
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -60,18 +64,36 @@ public class WHighChartFunctionCompound extends AbstractWHighChartFunction
 		return ( functions.length > 0 ) ? functions[0].getParamNames() : new String[] {};
 	}
 	
-	public static WHighChartFunction buildCompound( WHighChartFunction existingFunction, WHighChartFunction newFunction )
+	public static WHighChartFunction buildCompound( WHighChartFunction ... functions )
 	{
-		if( newFunction == null )
+		final List<WHighChartFunction> actualFunctions = new LinkedList<WHighChartFunction>();
+		
+		for( WHighChartFunction currentFunction : functions )
 		{
-			return existingFunction;
+			// handle the case where the existing function is already a compound function specially
+			if ( currentFunction instanceof WHighChartFunctionCompound )
+			{
+				actualFunctions.addAll( Arrays.asList( ( (WHighChartFunctionCompound)currentFunction ).functions ) );
+			}
+			else if ( currentFunction != null )
+			{
+				actualFunctions.add( currentFunction );
+			}
 		}
-		// TODO handle the case where the existing function is already a compound function specially: just append the new function to the compound function!
-		if( existingFunction != null )
+		
+		// return 
+		if ( actualFunctions.isEmpty() )
 		{
-			return new WHighChartFunctionCompound( existingFunction, newFunction );
+			return null;
 		}
-		return newFunction;
+		else if ( actualFunctions.size() == 1 )
+		{
+			return actualFunctions.get( 0 );
+		}
+		else
+		{
+			return new WHighChartFunctionCompound( actualFunctions.toArray( new WHighChartFunction[actualFunctions.size()] ) );
+		}
 	}
 
 }
