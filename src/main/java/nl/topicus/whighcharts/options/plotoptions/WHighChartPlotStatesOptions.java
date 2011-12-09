@@ -7,7 +7,7 @@ public class WHighChartPlotStatesOptions<T extends AbstractWHighChartPlotChartOp
 {
 	private T hover;
 
-	private T selected;
+	private T select;
 
 	public T getHover()
 	{
@@ -20,14 +20,14 @@ public class WHighChartPlotStatesOptions<T extends AbstractWHighChartPlotChartOp
 		return this;
 	}
 
-	public T getSelected()
+	public T getSelect()
 	{
-		return selected;
+		return select;
 	}
 
-	public WHighChartPlotStatesOptions<T> setSelected(T selected)
+	public WHighChartPlotStatesOptions<T> setSelect(T select)
 	{
-		this.selected = selected;
+		this.select = select;
 		return this;
 	}
 

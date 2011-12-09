@@ -39,6 +39,11 @@ public class ObjectSeriesEntry implements ISeriesEntry<Number>
 	 * "".
 	 */
 	private String name;
+	
+	/**
+	 * 
+	 */
+	private Boolean selected;
 
 	/**
 	 * Pie series only. Whether to display a slice offset from the center. Defaults to
@@ -116,6 +121,17 @@ public class ObjectSeriesEntry implements ISeriesEntry<Number>
 	public ObjectSeriesEntry setName(String name)
 	{
 		this.name = name;
+		return this;
+	}
+
+	public Boolean getSelected()
+	{
+		return selected;
+	}
+
+	public ObjectSeriesEntry setSelected(Boolean selected)
+	{
+		this.selected = selected;
 		return this;
 	}
 

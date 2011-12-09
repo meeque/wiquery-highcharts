@@ -1,5 +1,7 @@
 package nl.topicus.whighcharts.options.point;
 
+import static nl.topicus.whighcharts.options.WHighChartFunctionCompound.buildCompound;
+
 import java.io.Serializable;
 
 import nl.topicus.whighcharts.options.WHighChartFunction;
@@ -31,6 +33,11 @@ public class WHighChartPointEventsOptions implements Serializable
 	 * passed to the function. Returning false cancels the operation.
 	 */
 	private WHighChartFunction select;
+	
+	/**
+	 * 
+	 */
+	private WHighChartFunction unselect;
 
 	public WHighChartFunction getClick()
 	{
@@ -43,6 +50,18 @@ public class WHighChartPointEventsOptions implements Serializable
 		return this;
 	}
 
+	public WHighChartPointEventsOptions appendClick(WHighChartFunction click)
+	{
+		this.click = buildCompound( this.click, click );
+		return this;
+	}
+
+	public WHighChartPointEventsOptions prependClick(WHighChartFunction click)
+	{
+		this.click = buildCompound( click, this.click );
+		return this;
+	}
+
 	public WHighChartFunction getSelect()
 	{
 		return select;
@@ -51,6 +70,41 @@ public class WHighChartPointEventsOptions implements Serializable
 	public WHighChartPointEventsOptions setSelect(WHighChartFunction select)
 	{
 		this.select = select;
+		return this;
+	}
+
+	public WHighChartPointEventsOptions appendSelect(WHighChartFunction select)
+	{
+		this.select = buildCompound( this.select, select );
+		return this;
+	}
+
+	public WHighChartPointEventsOptions prependSelect(WHighChartFunction select)
+	{
+		this.select = buildCompound( select, this.select );
+		return this;
+	}
+
+	public WHighChartFunction getUnselect()
+	{
+		return unselect;
+	}
+
+	public WHighChartPointEventsOptions setUnselect(WHighChartFunction unselect)
+	{
+		this.unselect = unselect;
+		return this;
+	}
+
+	public WHighChartPointEventsOptions appendUnselect(WHighChartFunction unselect)
+	{
+		this.unselect = buildCompound( this.unselect, unselect );
+		return this;
+	}
+
+	public WHighChartPointEventsOptions prependUnselect(WHighChartFunction unselect)
+	{
+		this.unselect = buildCompound( unselect, this.unselect );
 		return this;
 	}
 }

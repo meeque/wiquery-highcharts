@@ -39,6 +39,8 @@ public class AbstractWHighChartPlotChartOptions<T extends AbstractWHighChartPlot
 	private Boolean shadow;
 
 	private Number zIndex;
+	
+	private Boolean allowPointSelect;
 
 	private WHighChartPlotStatesOptions<T> states;
 
@@ -119,6 +121,11 @@ public class AbstractWHighChartPlotChartOptions<T extends AbstractWHighChartPlot
 		return (T) this;
 	}
 
+	public Number getZIndex()
+	{
+		return zIndex;
+	}
+
 	@SuppressWarnings("unchecked")
 	public T setZIndex(Number zIndex)
 	{
@@ -126,9 +133,16 @@ public class AbstractWHighChartPlotChartOptions<T extends AbstractWHighChartPlot
 		return (T) this;
 	}
 
-	public Number getZIndex()
+	public Boolean getAllowPointSelect()
 	{
-		return zIndex;
+		return allowPointSelect;
+	}
+
+	@SuppressWarnings("unchecked")
+	public T setAllowPointSelect(Boolean allowPointSelect)
+	{
+		this.allowPointSelect = allowPointSelect;
+		return (T) this;
 	}
 
 	public WHighChartPlotStatesOptions<T> getStates()
