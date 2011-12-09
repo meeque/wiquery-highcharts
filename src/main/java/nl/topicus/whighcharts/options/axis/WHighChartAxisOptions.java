@@ -29,12 +29,18 @@ public class WHighChartAxisOptions implements Serializable
 	private Boolean showFirstLabel;
 
 	private Boolean showLastLabel;
+	
+	private Boolean startOnTick;
+	
+	private Boolean endOnTick;
 
 	private WHighChartTitleOptions title;
 
 	private List<String> categories;
 
 	private Number min;
+
+	private Number minPadding;
 
 	/**
 	 * An array of configuration objects for plot bands colouring parts of the plot area
@@ -54,6 +60,8 @@ public class WHighChartAxisOptions implements Serializable
 
 	private Number max;
 
+	private Number maxPadding;
+
 	private Number lineWidth;
 
 	private String lineColor;
@@ -63,6 +71,8 @@ public class WHighChartAxisOptions implements Serializable
 	private WHighChartAxisOptionsTickPosition tickPosition;
 
 	private Number tickInterval;
+
+	private Number tickPixelInterval;
 
 	private Number tickLength;
 
@@ -141,6 +151,28 @@ public class WHighChartAxisOptions implements Serializable
 		return this;
 	}
 
+	public Boolean getStartOnTick()
+	{
+		return startOnTick;
+	}
+
+	public WHighChartAxisOptions setStartOnTick(Boolean startOnTick)
+	{
+		this.startOnTick = startOnTick;
+		return this;
+	}
+
+	public Boolean getEndOnTick()
+	{
+		return endOnTick;
+	}
+
+	public WHighChartAxisOptions setEndOnTick(Boolean endOnTick)
+	{
+		this.endOnTick = endOnTick;
+		return this;
+	}
+
 	public WHighChartTitleOptions getTitle()
 	{
 		if (title == null)
@@ -182,6 +214,17 @@ public class WHighChartAxisOptions implements Serializable
 	public WHighChartAxisOptions setMin(Number min)
 	{
 		this.min = min;
+		return this;
+	}
+
+	public Number getMinPadding()
+	{
+		return minPadding;
+	}
+
+	public WHighChartAxisOptions setMinPadding(Number minPadding)
+	{
+		this.minPadding = minPadding;
 		return this;
 	}
 
@@ -259,15 +302,20 @@ public class WHighChartAxisOptions implements Serializable
 		return this;
 	}
 
+	public Number getOffset()
+	{
+		return offset;
+	}
+
 	public WHighChartAxisOptions setOffset(Number offset)
 	{
 		this.offset = offset;
 		return this;
 	}
 
-	public Number getOffset()
+	public Number getMax()
 	{
-		return offset;
+		return max;
 	}
 
 	public WHighChartAxisOptions setMax(Number max)
@@ -276,9 +324,15 @@ public class WHighChartAxisOptions implements Serializable
 		return this;
 	}
 
-	public Number getMax()
+	public Number getMaxPadding()
 	{
-		return max;
+		return maxPadding;
+	}
+
+	public WHighChartAxisOptions setMaxPadding(Number maxPadding)
+	{
+		this.maxPadding = maxPadding;
+		return this;
 	}
 
 	public Number getLineWidth()
@@ -334,6 +388,17 @@ public class WHighChartAxisOptions implements Serializable
 	public WHighChartAxisOptions setTickInterval(Number tickInterval)
 	{
 		this.tickInterval = tickInterval;
+		return this;
+	}
+
+	public Number getTickPixelInterval()
+	{
+		return tickPixelInterval;
+	}
+
+	public WHighChartAxisOptions setTickPixelInterval(Number tickPixelInterval)
+	{
+		this.tickPixelInterval = tickPixelInterval;
 		return this;
 	}
 
