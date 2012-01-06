@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	
-	<groupId>nl.topicus</groupId>
-	<artifactId>whighcharts</artifactId>
+	<groupId>de.meeque.highcharts</groupId>
+	<artifactId>highcharts-java-bindings</artifactId>
 	<packaging>jar</packaging>
-	<version>0.1-travelviva-SNAPSHOT</version>
-	<name>WHighCharts</name>
-	<description>WiQuery-HighCharts bindings</description>
+	<version>0.1-SNAPSHOT</version>
+	<name>Highcharts Java Bindings</name>
+	<description>Java Bindings for Highcharts, the JavaScript library for interactive charts</description>
 
 	<properties>
 		<wicket.version>1.4.17</wicket.version>
