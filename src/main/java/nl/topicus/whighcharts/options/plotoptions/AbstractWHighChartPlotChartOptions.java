@@ -41,6 +41,8 @@ public class AbstractWHighChartPlotChartOptions<T extends AbstractWHighChartPlot
 	private Number zIndex;
 	
 	private Boolean allowPointSelect;
+	
+	private Number cropThreshold;
 
 	private WHighChartPlotStatesOptions<T> states;
 
@@ -142,6 +144,18 @@ public class AbstractWHighChartPlotChartOptions<T extends AbstractWHighChartPlot
 	public T setAllowPointSelect(Boolean allowPointSelect)
 	{
 		this.allowPointSelect = allowPointSelect;
+		return (T) this;
+	}
+	
+	public Number getCropThreshold()
+	{
+		return cropThreshold;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public T setCropThreshold(Number cropThreshold)
+	{
+		this.cropThreshold = cropThreshold;
 		return (T) this;
 	}
 
