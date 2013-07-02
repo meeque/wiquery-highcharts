@@ -41,6 +41,8 @@ public class WHighChartAxisOptions implements Serializable
 	private Number min;
 
 	private Number minPadding;
+	
+	private Number minRange;
 
 	/**
 	 * An array of configuration objects for plot bands colouring parts of the plot area
@@ -225,6 +227,17 @@ public class WHighChartAxisOptions implements Serializable
 	public WHighChartAxisOptions setMinPadding(Number minPadding)
 	{
 		this.minPadding = minPadding;
+		return this;
+	}
+	
+	public Number getMinRange()
+	{
+		return minRange;
+	}
+
+	public WHighChartAxisOptions setMinRange(Number minRange)
+	{
+		this.minRange = minRange;
 		return this;
 	}
 
