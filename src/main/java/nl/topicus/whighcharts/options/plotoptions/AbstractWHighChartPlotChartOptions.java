@@ -33,6 +33,8 @@ public class AbstractWHighChartPlotChartOptions<T extends AbstractWHighChartPlot
 	private String color;
 
 	private Number pointWidth;
+	
+	private WHighChartPointPlacementType pointPlacement;
 
 	private WHighChartPointerType cursor;
 
@@ -108,6 +110,18 @@ public class AbstractWHighChartPlotChartOptions<T extends AbstractWHighChartPlot
 	public T setCursor(WHighChartPointerType cursor)
 	{
 		this.cursor = cursor;
+		return (T) this;
+	}
+
+	public WHighChartPointPlacementType getPointPlacement()
+	{
+		return pointPlacement;
+	}
+
+	@SuppressWarnings("unchecked")
+	public T setPointPlacement(WHighChartPointPlacementType pointPlacement)
+	{
+		this.pointPlacement = pointPlacement;
 		return (T) this;
 	}
 
