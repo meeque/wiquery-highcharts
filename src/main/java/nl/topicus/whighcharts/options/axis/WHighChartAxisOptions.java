@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import nl.topicus.whighcharts.options.title.WHighChartTitleOptions;
-
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -34,7 +32,7 @@ public class WHighChartAxisOptions implements Serializable
 	
 	private Boolean endOnTick;
 
-	private WHighChartTitleOptions title;
+	private WHighChartAxisTitleOptions title;
 
 	private List<String> categories;
 
@@ -175,15 +173,15 @@ public class WHighChartAxisOptions implements Serializable
 		return this;
 	}
 
-	public WHighChartTitleOptions getTitle()
+	public WHighChartAxisTitleOptions getTitle()
 	{
 		if (title == null)
-			title = new WHighChartTitleOptions();
+			title = new WHighChartAxisTitleOptions();
 
 		return title;
 	}
 
-	public WHighChartAxisOptions setTitle(WHighChartTitleOptions title)
+	public WHighChartAxisOptions setTitle(WHighChartAxisTitleOptions title)
 	{
 		this.title = title;
 		return this;

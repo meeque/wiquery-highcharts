@@ -30,7 +30,7 @@ public class AbstractWHighChartPlotChartOptions<T extends AbstractWHighChartPlot
 	 */
 	private Number fillOpacity;
 
-	private String color;
+	private Object color;
 
 	private Number pointWidth;
 	
@@ -77,13 +77,13 @@ public class AbstractWHighChartPlotChartOptions<T extends AbstractWHighChartPlot
 		return (T) this;
 	}
 
-	public String getColor()
+	public Object getColor()
 	{
 		return color;
 	}
 
 	@SuppressWarnings("unchecked")
-	public T setColor(String color)
+	public T setColor(Object color)
 	{
 		this.color = color;
 		return (T) this;
